@@ -1,0 +1,73 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 80vh;
+}
+
+h2 {
+  color: #1c78c0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 46px;
+  text-align: center;
+}
+
+.country-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.country-card {
+  margin: 15px;
+  flex-basis: 350px;
+  width: 350px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.233);
+}
+
+.country-flag-container {
+  width: 350px;
+  height: 200px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.158);
+}
+
+.country-flag-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.country-data {
+  padding: 15px 10px;
+}
+
+.country-name {
+  margin-top: 5px;
+  margin-bottom: 0px;
+  color: rgb(87, 86, 86);
+  font-weight: 600;
+}
+
+.continent-name {
+  margin-bottom: 0px;
+  margin-top: 5px;
+  color: rgb(148, 148, 148);
+  font-weight: 600;
+}
+
+
+
+.star-wars-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.employees-list{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+}
