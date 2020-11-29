@@ -62,15 +62,18 @@ function API() {
     fetch(address)
         .then(response => response.json())
         .then(function (dataOrder) {
-            if (order == "ZA" || order == "AZ") {
-                dataOrder.reverse()
-            } else if (order == "smallest") {
-                dataOrder.sort(compareSmallest)
-            } else if (order == "largest") {
-                dataOrder.sort(compareLargest)
+                if (order == "ZA") {
+                    dataOrder.reverse()
+                } else if (order == "AZ") {
+                    dataOrder.sort(compareAZ)
+                } else if (order == "smallest") {
+                    dataOrder.sort(compareSmallest)
+                } else if (order == "largest") {
+                    dataOrder.sort(compareLargest)
+                }
+                return dataOrder
             }
-            return dataOrder
-        })
+        )
         .then(data => {
             const countries = document.querySelector('.country-list');
             data.forEach(element => countries.innerHTML += country(
@@ -86,6 +89,15 @@ function API() {
 
 API();
 
+function compareAZ(a, b) {
+    let comparison = 0;
+    if (a.name > b.name) {
+        comparison = 1;
+    } else if (a.name < b.name) {
+        comparison = -1;
+    }
+    return comparison;
+}
 
 function compareSmallest(a, b) {
     let comparison = 0;
