@@ -55,19 +55,3 @@ h2 {
   color: rgb(148, 148, 148);
   font-weight: 600;
 }
-
-
-
-.star-wars-list {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  list-style: none;
-}
-
-.employees-list{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  list-style: none;
-}

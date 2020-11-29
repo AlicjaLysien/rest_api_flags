@@ -1,9 +1,11 @@
 import '../css/style.css';
 import country from "./country";
 
+var order = "start";
 var address = "https://restcountries.eu/rest/v2/";
 
-document.getElementById("continent").onchange = function continentt() {
+
+document.getElementById("continent").onchange = function () {
     var newAddress;
     switch (document.getElementById("continent").value) {
         case "all":
@@ -27,14 +29,48 @@ document.getElementById("continent").onchange = function continentt() {
     }
 
     document.getElementById("ul-countries").innerHTML = "";
+    address = newAddress;
 
-    API(newAddress);
+    API();
 }
 
-function API(a) {
-    console.log("URL call : " + a)
-    fetch(a)
+document.getElementById("order").onchange = function changeOrder() {
+
+    var newOrder;
+    if (document.getElementById("ZA").checked) {
+        console.log(document.getElementById("ZA").value)
+        newOrder = "ZA"
+    } else if (document.getElementById("AZ").checked) {
+        console.log(document.getElementById("AZ").value)
+        newOrder = 'AZ'
+    } else if (document.getElementById("smallest").checked) {
+        console.log(document.getElementById("smallest").value)
+        newOrder = 'smallest'
+    } else if (document.getElementById("largest").checked) {
+        console.log(document.getElementById("largest").value)
+        newOrder = 'largest'
+    }
+
+    document.getElementById("ul-countries").innerHTML = " ";
+
+    order = newOrder;
+
+    API();
+}
+
+function API() {
+    fetch(address)
         .then(response => response.json())
+        .then(function (dataOrder) {
+            if (order == "ZA" || order == "AZ") {
+                dataOrder.reverse()
+            } else if (order == "smallest") {
+                dataOrder.sort(compareSmallest)
+            } else if (order == "largest") {
+                dataOrder.sort(compareLargest)
+            }
+            return dataOrder
+        })
         .then(data => {
             const countries = document.querySelector('.country-list');
             data.forEach(element => countries.innerHTML += country(
@@ -48,5 +84,25 @@ function API(a) {
         });
 }
 
-API(address);
+API();
 
+
+function compareSmallest(a, b) {
+    let comparison = 0;
+    if (a.area > b.area) {
+        comparison = 1;
+    } else if (a.area < b.area) {
+        comparison = -1;
+    }
+    return comparison;
+}
+
+function compareLargest(a, b) {
+    let comparison = 0;
+    if (a.area < b.area) {
+        comparison = 1;
+    } else if (a.area > b.area) {
+        comparison = -1;
+    }
+    return comparison;
+}
