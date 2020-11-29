@@ -5,16 +5,7 @@
  * @return string
  */
 export default (title, subtitle, imgSrc) => {
-    let infoTemplate = []
-/*
-    if (infoList.length > 0) {
-        infoTemplate = infoList.reduce((acc, entry) => {
-            acc.push(`<li class="country-info-item">${entry.key}: ${entry.value}</li>`)
-            return acc
-        }, [])
-    }
-    */
-    // ${infoTemplate.join("")}
+
 
     let template =  `
         <li class="country-card">

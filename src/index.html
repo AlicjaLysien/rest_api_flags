@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>API Project</title>
-  </head>
-  <body>
-    <h2>Countries API</h2>
+    <script src="js/index.js"></script>
+</head>
+<body>
+<h2>All countries!</h2>
 
-    <ul class="country-list">
+<form>
+    <div>
+        <label>Choose continent</label>
+        <select id="continent">
+            <option value="all">All</option>
+            <option value="europe"> Europe</option>
+            <option value="asia">Asia</option>
+            <option value="america">America</option>
+            <option value="africa">Africa</option>
+            <option value="australia">Australia</option>
+        </select>
+    </div>
 
-    </ul>
+</form>
 
-    <h2>Star Wars API</h2>
 
-    <ul class="star-wars-list">
+<ul class="country-list" id="ul-countries">
 
-    </ul>
+</ul>
 
-    <h2>Employees API</h2>
-
-    <ul class="employees-list">
-
-    </ul>
-  </body>
+</body>
 </html>

@@ -1,58 +1,52 @@
 import '../css/style.css';
 import country from "./country";
-import starwars from "./starwars";
-import employee from "./employee";
 
-/*
-    Nápověda pro Star Wars API
-    Pro úspešně volání API je potřeba následující formát:
-    https://cors-anywhere.herokuapp.com/http://swapi.dev/api/planets
-*/
+var address = "https://restcountries.eu/rest/v2/";
 
-fetch('https://restcountries.eu/rest/v2/region/oceania')
-    .then(response => response.json())
-    .then(data => {
-        const countries = document.querySelector('.country-list');
-        data.forEach(element => countries.innerHTML += country(
-            element.name,
-            element.capital,
-            element.flag))
-        console.log('Success:', data);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
-
-fetch('http://swapi.dev/api/planets', {
-    headers: {
-        'origin': 'x-requested-with',
+document.getElementById("continent").onchange = function continentt() {
+    var newAddress;
+    switch (document.getElementById("continent").value) {
+        case "all":
+            newAddress = "https://restcountries.eu/rest/v2/";
+            break;
+        case "europe":
+            newAddress = "https://restcountries.eu/rest/v2/region/europe";
+            break;
+        case "asia":
+            newAddress = "https://restcountries.eu/rest/v2/region/asia";
+            break;
+        case "america":
+            newAddress = "https://restcountries.eu/rest/v2/region/americas";
+            break;
+        case "africa":
+            newAddress = "https://restcountries.eu/rest/v2/region/africa";
+            break;
+        case "australia":
+            newAddress = "https://restcountries.eu/rest/v2/region/oceania";
+            break;
     }
-})
-    .then(response => response.json())
-    .then(data => {
-        const countries = document.querySelector('.star-wars-list');
-        data.results.forEach(element => countries.innerHTML += starwars(
-            element.name,
-            element.population,
-            element.terrain))
-        console.log('Success:', data);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
 
+    document.getElementById("ul-countries").innerHTML = "";
 
-fetch('http://dummy.restapiexample.com/api/v1/employees')
-    .then(response => response.json())
-    .then(data => {
-        const countries = document.querySelector('.employees-list');
-        data.data.forEach(element => countries.innerHTML += employee(
-            element.id,
-            element.employee_name,
-            element.employee_salary,
-            element.employee_age))
-        console.log('Success:', data);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+    API(newAddress);
+}
+
+function API(a) {
+    console.log("URL call : " + a)
+    fetch(a)
+        .then(response => response.json())
+        .then(data => {
+            const countries = document.querySelector('.country-list');
+            data.forEach(element => countries.innerHTML += country(
+                element.name,
+                element.capital,
+                element.flag))
+            console.log('Success:', data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
+
+API(address);
+
