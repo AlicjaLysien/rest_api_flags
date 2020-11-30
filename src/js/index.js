@@ -52,14 +52,7 @@ document.getElementById("order").onchange = function changeOrder() {
 }
 
 document.getElementById("info").onchange = function newInfo() {
-    if (document.getElementById("capitalBox").checked) {
-        document.getElementById("ul-countries").innerHTML = "";
-        console.log(document.getElementById("capitalBox").checked)
-    }
-    if (document.getElementById("capitalBox").checked == false) {
-        document.getElementById("ul-countries").innerHTML = "";
-        console.log(document.getElementById("capitalBox").checked)
-    }
+    document.getElementById("ul-countries").innerHTML = "";
     API();
 }
 
@@ -82,16 +75,21 @@ function API() {
         )
         .then(data => {
             const countries = document.querySelector('.country-list');
-            data.forEach(element => countries.innerHTML += country(
-                element.flag,
-                element.name,
-             element.capital))
-            console.log('Success:', data);
+            data.forEach(element => {
+                countries.innerHTML += country(
+                    element.flag,
+                    element.name,
+                    element.capital,
+                    element.region,
+                    element.languages,
+                    element.currencies,
+                    element.area,
+                    element.population)
+                console.log('Success:', data);
+            }).catch((error) => {
+                console.error('Error:', error);
+            })
         })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-
 }
 
 API();
