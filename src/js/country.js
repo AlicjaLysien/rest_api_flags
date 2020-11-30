@@ -4,12 +4,19 @@
  * @param imgSrc string Odkaz na obrázek
  * @return string
  */
-export default (title, subtitle, imgSrc) => {
+export default (imgSrc, country, capital) => {
+
+    var capitalShow
+    if (document.getElementById("capitalBox").checked) {
+        capitalShow = `<h4 class="continent-name">${capital}</h4>`;
+    } else if (document.getElementById("capitalBox").checked == false) {
+        capitalShow = ``;
+    }
 
 
-    let template =  `
+    let template = `
         <li class="country-card">
-            <div class="country-flag-container">
+            <div class="country-flag-container" id="country-flag-container">
             <img
                 src=${imgSrc}
                 alt="country flag"
@@ -17,15 +24,13 @@ export default (title, subtitle, imgSrc) => {
             />
             </div>
 
-            <div class="country-data">
+            <div class="country-data" id="listInfo">
                 <h3 class="country-name">
-                    ${title}
+                    ${country}
                 </h3>
-                <h4 class="continent-name">${subtitle}</h4>
-   
-            </div>
+                    ${capitalShow}
+             </div>
         </li>
     `
-
     return template;
 }

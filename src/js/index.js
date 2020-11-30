@@ -1,5 +1,6 @@
 import '../css/style.css';
 import country from "./country";
+import capitalBox from "./country"
 
 var order = "start";
 var address = "https://restcountries.eu/rest/v2/";
@@ -35,28 +36,33 @@ document.getElementById("continent").onchange = function () {
 }
 
 document.getElementById("order").onchange = function changeOrder() {
-
     var newOrder;
     if (document.getElementById("ZA").checked) {
-        console.log(document.getElementById("ZA").value)
         newOrder = "ZA"
     } else if (document.getElementById("AZ").checked) {
-        console.log(document.getElementById("AZ").value)
         newOrder = 'AZ'
     } else if (document.getElementById("smallest").checked) {
-        console.log(document.getElementById("smallest").value)
         newOrder = 'smallest'
     } else if (document.getElementById("largest").checked) {
-        console.log(document.getElementById("largest").value)
         newOrder = 'largest'
     }
-
-    document.getElementById("ul-countries").innerHTML = " ";
-
+    document.getElementById("ul-countries").innerHTML = "";
     order = newOrder;
-
     API();
 }
+
+document.getElementById("info").onchange = function newInfo() {
+    if (document.getElementById("capitalBox").checked) {
+        document.getElementById("ul-countries").innerHTML = "";
+        console.log(document.getElementById("capitalBox").checked)
+    }
+    if (document.getElementById("capitalBox").checked == false) {
+        document.getElementById("ul-countries").innerHTML = "";
+        console.log(document.getElementById("capitalBox").checked)
+    }
+    API();
+}
+
 
 function API() {
     fetch(address)
@@ -77,14 +83,15 @@ function API() {
         .then(data => {
             const countries = document.querySelector('.country-list');
             data.forEach(element => countries.innerHTML += country(
+                element.flag,
                 element.name,
-                element.capital,
-                element.flag))
+             element.capital))
             console.log('Success:', data);
         })
         .catch((error) => {
             console.error('Error:', error);
         });
+
 }
 
 API();
@@ -118,3 +125,4 @@ function compareLargest(a, b) {
     }
     return comparison;
 }
+
