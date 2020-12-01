@@ -73,6 +73,8 @@ export default (imgSrc, country, capital, region, languages, currencies, area, p
 
 
     let template = `
+
+
         <li class="country-card">
             <div class="country-flag-container" id="country-flag-container">
             <img

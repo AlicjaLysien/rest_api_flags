@@ -55,3 +55,49 @@ h2 {
   color: rgb(148, 148, 148);
   font-weight: 600;
 }
+
+
+#gameDiv
+{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+#buttonGame, #buttonInformation
+{
+font-size: 20px;
+  float: none;
+  display: inline;
+  border: #65b7fa solid 1px;
+  padding: 6px;
+}
+
+
+#buttonInformation
+{
+  margin-left: 40vw;
+  margin-right: 10px;
+}
+
+#buttonGame:hover, #buttonInformation:hover
+{
+background: #eaf5ff;
+  cursor: pointer;
+}
+
+#form
+{
+  margin-top: 20px;
+}
+
+.noForm
+{
+  display: none;
+}
+
+.showForm
+{
+  display: inline;
+}

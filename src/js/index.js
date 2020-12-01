@@ -1,6 +1,7 @@
 import '../css/style.css';
 import country from "./country";
-import capitalBox from "./country"
+import game from "./game";
+
 
 var order = "start";
 var address = "https://restcountries.eu/rest/v2/";
@@ -56,6 +57,21 @@ document.getElementById("info").onchange = function newInfo() {
     API();
 }
 
+document.getElementById("buttonInformation").onclick = function buttonInformation() {
+    document.getElementById("gameDiv").innerHTML = "";
+    document.getElementById("ul-countries").innerHTML = "";
+    document.getElementById("form").className = "showForm"
+    API();
+}
+
+document.getElementById("buttonGame").onclick = function buttonGame() {
+    document.getElementById("gameDiv").innerHTML = "";
+    document.getElementById("ul-countries").innerHTML = "";
+    document.getElementById("form").className = "noForm"
+    API2();
+}
+
+
 
 function API() {
     fetch(address)
@@ -85,14 +101,35 @@ function API() {
                     element.currencies,
                     element.area,
                     element.population)
-                console.log('Success:', data);
+                /*  console.log('Success:', data); */
             }).catch((error) => {
                 console.error('Error:', error);
             })
         })
 }
 
-API();
+function API2() {
+    fetch(`https://restcountries.eu/rest/v2/`)
+        .then(response => response.json())
+        .then(data => {
+                const countries = document.querySelector('.gameDiv');
+                const randomIndex1 = Math.floor(Math.random() * 250);
+                const randomIndex2 = Math.floor(Math.random() * 250);
+                const randomIndex3 = Math.floor(Math.random() * 250);
+                const randomIndex4 = Math.floor(Math.random() * 250);
+                countries.innerHTML += game(
+                    data[randomIndex1].flag,
+                    data[randomIndex1].name,
+                    data[randomIndex2].name,
+                    data[randomIndex3].name,
+                    data[randomIndex4].name)
+            }
+            /*  console.log('Success:', data); */
+        ).catch((error) => {
+        console.error('Error:', error);
+    })
+}
+
 
 function compareAZ(a, b) {
     let comparison = 0;
