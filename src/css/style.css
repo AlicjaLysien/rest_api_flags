@@ -30,6 +30,10 @@ h2 {
   width: 350px;
   height: 200px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.158);
+ align-self: center;
+
+  margin: auto;
+
 }
 
 .country-flag-element {
@@ -67,21 +71,20 @@ h2 {
 
 #buttonGame, #buttonInformation
 {
-font-size: 20px;
-  float: none;
-  display: inline;
+  font-size: 20px;
   border: #65b7fa solid 1px;
-  padding: 6px;
+  margin-top: 16px;
+  text-align: center;
+  margin-right: 4px;
+  margin-left: 4px;
+  height: 30px;
+ padding: 6px;
+  display: inline;
 }
 
 
-#buttonInformation
-{
-  margin-left: 40vw;
-  margin-right: 10px;
-}
 
-#buttonGame:hover, #buttonInformation:hover
+#buttonGame:hover, #buttonInformation:hover, .gameAnswer:hover, #nextButton:hover
 {
 background: #eaf5ff;
   cursor: pointer;
@@ -94,10 +97,44 @@ background: #eaf5ff;
 
 .noForm
 {
-  display: none;
+display: none;
 }
 
 .showForm
 {
-  display: inline;
+  display: block;
+}
+
+.gameAnswer{
+  font-size: 20px;
+  border: #65b7fa solid 1px;
+  margin-top: 16px;
+  text-align: center;
+  margin-right: 4px;
+  margin-left: 4px;
+  min-height: 60px;
+}
+
+#mainButtons {
+  margin: auto;
+ width: 50%;
+}
+
+.answerColumn
+{
+  margin: auto;
+  width: 50%;
+  float: left;
+ display: compact;
+}
+
+#nextButton
+{
+  font-size: 16px;
+  display: block;
+  border: #65b7fa solid 1px;
+  padding: 6px;
+  float:left;
+  clear: left;
+  margin-top: 20px;
 }
