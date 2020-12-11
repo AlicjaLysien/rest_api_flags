@@ -12,64 +12,80 @@
 <h2>All countries!</h2>
 
 <div id="mainButtons">
-<div id="buttonInformation">Information</div> <div id="buttonGame">Game</div>
+    <div id="buttonInformation">Information</div>
+    <div id="buttonGame">Game</div>
 </div>
 
 <div id="form" class="noForm">
-<form>
-    <div>
-        <label>Choose continent</label>
-        <select id="continent">
-            <option value="all">All</option>
-            <option value="europe"> Europe</option>
-            <option value="asia">Asia</option>
-            <option value="america">America</option>
-            <option value="africa">Africa</option>
-            <option value="australia">Australia</option>
-        </select>
-        <br><br>
-    </div>
+    <form>
+        <div>
+            <label>Choose continent</label>
+            <select id="continent">
+                <option value="all">All</option>
+                <option value="europe"> Europe</option>
+                <option value="asia">Asia</option>
+                <option value="america">America</option>
+                <option value="africa">Africa</option>
+                <option value="australia">Australia</option>
+            </select>
+            <br><br>
+        </div>
 
-<div>
-    <fieldset id="order">
-    <legend>Order:</legend>
-    <input type="radio" id="AZ" name="order" value="az" checked>
-    <label for="AZ">From A to Z</label>
-    <input type="radio" id="ZA" name="order" value="za">
-    <label for="ZA">From Z to A</label>
-    <input type="radio" id="smallest" name="order" value="smallest">
-    <label for="smallest">From smallest to largest</label>
-    <input type="radio" id="largest" name="order" value="largest">
-    <label for="largest">From largest to smallest</label>
-    </fieldset>
+        <div>
+            <fieldset id="order">
+                <legend>Order:</legend>
+                <input type="radio" id="AZ" name="order" value="az" checked>
+                <label for="AZ">From A to Z</label>
+                <input type="radio" id="ZA" name="order" value="za">
+                <label for="ZA">From Z to A</label>
+                <input type="radio" id="smallest" name="order" value="smallest">
+                <label for="smallest">From smallest to largest</label>
+                <input type="radio" id="largest" name="order" value="largest">
+                <label for="largest">From largest to smallest</label>
+            </fieldset>
+        </div>
+
+        <div>
+            <fieldset id="info">
+                <legend>Shown information:</legend>
+                <input type="checkbox" id="capitalBox" name="info" value="capital">
+                <label for="capitalBox">Capital</label>
+                <input type="checkbox" id="regionBox" name="info" value="region">
+                <label for="regionBox">Continent</label>
+                <input type="checkbox" id="langBox" name="info" value="languages">
+                <label for="langBox">Languages</label>
+                <input type="checkbox" id="currBox" name="info" value="currencies">
+                <label for="currBox">Currencies</label>
+                <input type="checkbox" id="areaBox" name="info" value="area">
+                <label for="areaBox">Area</label>
+                <input type="checkbox" id="populationBox" name="info" value="population">
+                <label for="populationBox">Population</label>
+            </fieldset>
+        </div>
+    </form>
 </div>
 
-    <div>
-        <fieldset id="info">
-            <legend>Shown information:</legend>
-            <input type="checkbox" id="capitalBox" name="info" value="capital">
-            <label for="capitalBox">Capital</label>
-            <input type="checkbox" id="regionBox" name="info" value="region">
-            <label for="regionBox">Continent</label>
-            <input type="checkbox" id="langBox" name="info" value="languages">
-            <label for="langBox">Languages</label>
-            <input type="checkbox" id="currBox" name="info" value="currencies">
-            <label for="currBox">Currencies</label>
-            <input type="checkbox" id="areaBox" name="info" value="area">
-            <label for="areaBox">Area</label>
-            <input type="checkbox" id="populationBox" name="info" value="population">
-            <label for="populationBox">Population</label>
-
-
-        </fieldset>
-    </div>
-</form>
-</div>
-
-<ul class="country-list" id="ul-countries">
-</ul>
+<ul class="country-list" id="ul-countries"></ul>
 
 <div id="gameDiv" class="gameDiv">
+
+
+    <div id="gamePhotoImg" class="country-card ">
+    </div>
+
+
+
+    <div class="answerColumn">
+        <div id="answer1"></div>
+        <div id="answer2"></div>
+    </div>
+    <div class="answerColumn">
+        <div id="answer3"></div>
+        <div id="answer4"></div>
+    </div>
+
+    <!--<div id="nextButton">Next</div> -->
+
 </div>
 
 </body>

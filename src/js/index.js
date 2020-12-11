@@ -1,6 +1,7 @@
 import '../css/style.css';
 import country from "./country";
-import game from "./game";
+import gamePhotoTemplate from "./gamePhoto";
+import answer1 from "./gameAnswer1";
 
 
 var order = "start";
@@ -65,12 +66,12 @@ document.getElementById("buttonInformation").onclick = function buttonInformatio
 }
 
 document.getElementById("buttonGame").onclick = function buttonGame() {
-    document.getElementById("gameDiv").innerHTML = "";
+    document.getElementById('gamePhotoImg').innerHTML = "";
+    document.getElementById('answer1').innerHTML = "";
     document.getElementById("ul-countries").innerHTML = "";
     document.getElementById("form").className = "noForm"
     API2();
 }
-
 
 
 function API() {
@@ -112,17 +113,21 @@ function API2() {
     fetch(`https://restcountries.eu/rest/v2/`)
         .then(response => response.json())
         .then(data => {
-                const countries = document.querySelector('.gameDiv');
+                const gamePhotoDiv = document.getElementById('gamePhotoImg')
+                const answer1Div = document.getElementById('answer1');
+
                 const randomIndex1 = Math.floor(Math.random() * 250);
                 const randomIndex2 = Math.floor(Math.random() * 250);
                 const randomIndex3 = Math.floor(Math.random() * 250);
                 const randomIndex4 = Math.floor(Math.random() * 250);
-                countries.innerHTML += game(
-                    data[randomIndex1].flag,
-                    data[randomIndex1].name,
-                    data[randomIndex2].name,
-                    data[randomIndex3].name,
-                    data[randomIndex4].name)
+                const goodAnswer = randomIndex1
+
+                let answersArray = [randomIndex1, randomIndex2, randomIndex3, randomIndex4]
+                shuffle(answersArray);
+
+                gamePhotoDiv.innerHTML += gamePhotoTemplate(data[randomIndex1].flag)
+                answer1Div.innerHTML += answer1(data[answersArray[0]].name)
+
             }
             /*  console.log('Success:', data); */
         ).catch((error) => {
@@ -160,4 +165,14 @@ function compareLargest(a, b) {
     }
     return comparison;
 }
+
+function shuffle(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+
 
