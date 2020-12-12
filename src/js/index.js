@@ -2,6 +2,9 @@ import '../css/style.css';
 import country from "./country";
 import gamePhotoTemplate from "./gamePhoto";
 import answer1 from "./gameAnswer1";
+import answer2 from "./gameAnswer2";
+import answer3 from "./gameAnswer3";
+import answer4 from "./gameAnswer4";
 
 
 var order = "start";
@@ -59,17 +62,33 @@ document.getElementById("info").onchange = function newInfo() {
 }
 
 document.getElementById("buttonInformation").onclick = function buttonInformation() {
-    document.getElementById("gameDiv").innerHTML = "";
+    document.getElementById('gamePhotoImg').innerHTML = "";
+    document.getElementById('answer1').innerHTML = "";
+    document.getElementById('answer2').innerHTML = "";
+    document.getElementById('answer3').innerHTML = "";
+    document.getElementById('answer4').innerHTML = "";
     document.getElementById("ul-countries").innerHTML = "";
     document.getElementById("form").className = "showForm"
     API();
 }
 
-document.getElementById("buttonGame").onclick = function buttonGame() {
+var buttonGame = document.getElementById("buttonGame")
+buttonGame.addEventListener("click", prepareGame)
+
+function prepareGame() {
     document.getElementById('gamePhotoImg').innerHTML = "";
     document.getElementById('answer1').innerHTML = "";
-    document.getElementById("ul-countries").innerHTML = "";
+    document.getElementById('answer2').innerHTML = "";
+    document.getElementById('answer3').innerHTML = "";
+    document.getElementById('answer4').innerHTML = "";
+    document.getElementById("ul-countries").innerHTML = " ";
     document.getElementById("form").className = "noForm"
+
+    document.getElementById("answer1").style.backgroundColor = "white"
+    document.getElementById("answer2").style.backgroundColor = "white"
+    document.getElementById("answer3").style.backgroundColor = "white"
+    document.getElementById("answer4").style.backgroundColor = "white"
+   document.getElementById("nextButton").className = "noForm"
     API2();
 }
 
@@ -115,6 +134,9 @@ function API2() {
         .then(data => {
                 const gamePhotoDiv = document.getElementById('gamePhotoImg')
                 const answer1Div = document.getElementById('answer1');
+                const answer2Div = document.getElementById('answer2');
+                const answer3Div = document.getElementById('answer3');
+                const answer4Div = document.getElementById('answer4');
 
                 const randomIndex1 = Math.floor(Math.random() * 250);
                 const randomIndex2 = Math.floor(Math.random() * 250);
@@ -127,12 +149,49 @@ function API2() {
 
                 gamePhotoDiv.innerHTML += gamePhotoTemplate(data[randomIndex1].flag)
                 answer1Div.innerHTML += answer1(data[answersArray[0]].name)
+                answer2Div.innerHTML += answer2(data[answersArray[1]].name)
+                answer3Div.innerHTML += answer3(data[answersArray[2]].name)
+                answer4Div.innerHTML += answer4(data[answersArray[3]].name)
+
+                document.getElementById("answer1").onclick = function () {
+                    if (answersArray[0] === goodAnswer) {
+                        document.getElementById("answer1").style.backgroundColor = " lawngreen"
+                        document.getElementById("nextButton").className = "showForm"
+                    } else document.getElementById("answer1").style.backgroundColor = "indianred"
+                }
+
+                document.getElementById("answer2").onclick = function () {
+                    if (answersArray[1] === goodAnswer) {
+                        document.getElementById("answer2").style.backgroundColor = " lawngreen"
+                        document.getElementById("nextButton").className = "showForm"
+                    } else document.getElementById("answer2").style.backgroundColor = "indianred"
+                }
+
+                document.getElementById("answer3").onclick = function () {
+                    if (answersArray[2] === goodAnswer) {
+                        document.getElementById("answer3").style.backgroundColor = " lawngreen"
+                        document.getElementById("nextButton").className = "showForm"
+                    } else document.getElementById("answer3").style.backgroundColor = "indianred"
+                }
+
+                document.getElementById("answer4").onclick = function () {
+                    if (answersArray[3] === goodAnswer) {
+                        document.getElementById("answer4").style.backgroundColor = " lawngreen"
+                        document.getElementById("nextButton").className = "showForm"
+                    } else document.getElementById("answer4").style.backgroundColor = "indianred"
+                }
+
+                document.getElementById("nextButton").onclick = function () {
+                    prepareGame()
+                }
 
             }
             /*  console.log('Success:', data); */
         ).catch((error) => {
         console.error('Error:', error);
     })
+
+
 }
 
 
@@ -166,6 +225,8 @@ function compareLargest(a, b) {
     return comparison;
 }
 
+
+/* game functions */
 function shuffle(array) {
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -174,5 +235,8 @@ function shuffle(array) {
         array[j] = temp;
     }
 }
+
+
+
 
 

@@ -84,11 +84,25 @@ h2 {
 
 
 
-#buttonGame:hover, #buttonInformation:hover, .gameAnswer:hover, #nextButton:hover
+#buttonGame:hover, #buttonInformation:hover, #answer1:hover, #answer2:hover, #answer3:hover, #answer4:hover, #nextButton:hover
 {
 background: #eaf5ff;
   cursor: pointer;
 }
+
+#nextButton
+{
+  font-size: 36px;
+  text-align: center;
+  border: #65b7fa solid 1px;
+  padding: 6px;
+width: 200px;
+
+  margin-top: 30px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 
 #form
 {
@@ -129,13 +143,3 @@ display: none;
  display: compact;
 }
 
-#nextButton
-{
-  font-size: 16px;
-  display: block;
-  border: #65b7fa solid 1px;
-  padding: 6px;
-  float:left;
-  clear: left;
-  margin-top: 20px;
-}
