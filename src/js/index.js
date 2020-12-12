@@ -155,30 +155,31 @@ function API2() {
 
                 document.getElementById("answer1").onclick = function () {
                     if (answersArray[0] === goodAnswer) {
-                        document.getElementById("answer1").style.backgroundColor = " lawngreen"
+
+                            document.getElementsByClassName("gameAnswer")[0].style.backgroundColor = "lawngreen"
                         document.getElementById("nextButton").className = "showForm"
-                    } else document.getElementById("answer1").style.backgroundColor = "indianred"
+                    } else document.getElementsByClassName("gameAnswer")[0].style.backgroundColor = "indianred"
                 }
 
                 document.getElementById("answer2").onclick = function () {
                     if (answersArray[1] === goodAnswer) {
-                        document.getElementById("answer2").style.backgroundColor = " lawngreen"
+                        document.getElementsByClassName("gameAnswer")[1].style.backgroundColor = " lawngreen"
                         document.getElementById("nextButton").className = "showForm"
-                    } else document.getElementById("answer2").style.backgroundColor = "indianred"
+                    } else document.getElementsByClassName("gameAnswer")[1].style.backgroundColor = "indianred"
                 }
 
                 document.getElementById("answer3").onclick = function () {
                     if (answersArray[2] === goodAnswer) {
-                        document.getElementById("answer3").style.backgroundColor = " lawngreen"
+                        document.getElementsByClassName("gameAnswer")[2].style.backgroundColor = " lawngreen"
                         document.getElementById("nextButton").className = "showForm"
-                    } else document.getElementById("answer3").style.backgroundColor = "indianred"
+                    } else document.getElementsByClassName("gameAnswer")[2].style.backgroundColor = "indianred"
                 }
 
                 document.getElementById("answer4").onclick = function () {
                     if (answersArray[3] === goodAnswer) {
-                        document.getElementById("answer4").style.backgroundColor = " lawngreen"
+                        document.getElementsByClassName("gameAnswer")[3].style.backgroundColor = " lawngreen"
                         document.getElementById("nextButton").className = "showForm"
-                    } else document.getElementById("answer4").style.backgroundColor = "indianred"
+                    } else document.getElementsByClassName("gameAnswer")[3].style.backgroundColor = "indianred"
                 }
 
                 document.getElementById("nextButton").onclick = function () {

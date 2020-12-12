@@ -69,22 +69,28 @@ h2 {
   list-style: none;
 }
 
+#mainButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
 #buttonGame, #buttonInformation
 {
-  font-size: 20px;
+  font-size: 30px;
   border: #65b7fa solid 1px;
-  margin-top: 16px;
   text-align: center;
   margin-right: 4px;
   margin-left: 4px;
   height: 30px;
- padding: 6px;
+ padding: 6px 6px 16px 6px;
   display: inline;
 }
 
 
 
-#buttonGame:hover, #buttonInformation:hover, #answer1:hover, #answer2:hover, #answer3:hover, #answer4:hover, #nextButton:hover
+#buttonGame:hover, #buttonInformation:hover, .gameAnswer:hover, #nextButton:hover
 {
 background: #eaf5ff;
   cursor: pointer;
@@ -120,19 +126,13 @@ display: none;
 }
 
 .gameAnswer{
-  font-size: 20px;
+  font-size: 26px;
   border: #65b7fa solid 1px;
-  margin-top: 16px;
+  margin: 20px 22px 26px 22px;
   text-align: center;
-  margin-right: 4px;
-  margin-left: 4px;
-  min-height: 60px;
-}
+  padding-top:10px;
+  padding-bottom:10px;
 
-
-#mainButtons {
-  margin: auto;
- width: 50%;
 }
 
 .answerColumn
@@ -140,6 +140,13 @@ display: none;
   margin: auto;
   width: 50%;
   float: left;
- display: compact;
+}
+
+
+#gamePhotoImg
+{
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
 }
 
